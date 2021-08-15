@@ -1,0 +1,18 @@
+.container {
+  padding: 1rem;
+}
+.header {
+  text-align: center;
+}
+.sidebar {
+  padding: 0.5rem;
+}
+.main {
+  padding: 0.5rem;
+}
+.chart {
+  height: 450px;
+}
+.booksTrades {
+  padding-top: 1rem;
+}
