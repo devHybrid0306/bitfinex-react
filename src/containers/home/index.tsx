@@ -4,10 +4,10 @@ import { Card, Col, Row, Table, Tabs } from 'antd';
 import TradingViewWidget from 'react-tradingview-widget';
 import classes from './main.module.css';
 
-import { getAllTickers } from '../../store/actions/tickers.action';
 import { IState } from '../../types/state';
-import { getBookOrder } from '../../store/actions/book.action';
 import { isTrading } from '../../utils';
+import { getBookOrder } from '../../store/actions/book.action';
+import { getAllTickers } from '../../store/actions/tickers.action';
 import { getTrades } from '../../store/actions/trades.action';
 import {
   FUNDING_BOOK_COLUMNS,
@@ -82,7 +82,14 @@ const Home = () => {
         </Col>
         <Col span={18} className={classes.main}>
           <Row className={classes.chart}>
-            <TradingViewWidget symbol={`BITFINEX:${currentTicker.substring(1)}`} autosize />
+            <TradingViewWidget
+              symbol={
+                isTrading(currentTicker)
+                  ? `BITFINEX:${currentTicker.substring(1)}`
+                  : `BITFINEX:BTC${currentTicker.substring(1)}`
+              }
+              autosize
+            />
           </Row>
           <Row className={classes.booksTrades}>
             <Col span={12}>

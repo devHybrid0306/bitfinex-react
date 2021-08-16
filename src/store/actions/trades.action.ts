@@ -1,4 +1,5 @@
 import axios from 'axios';
+import moment from 'moment';
 import { BITFINEX_API_URL } from '../../constants';
 import { IFTrade, ITTrade } from '../../types/trades';
 import { isTrading } from '../../utils';
@@ -14,17 +15,20 @@ export const getTrades = (symbol: string) => {
       );
       if (status === 200) {
         const trades: (ITTrade | IFTrade)[] = [];
-
-        console.log('->GetTrades', data);
         if (isTrading(symbol)) {
           data.map((item: any) =>
-            trades.push({ id: item[0], mts: item[1], amount: item[2], price: item[3] }),
+            trades.push({
+              id: item[0],
+              mts: moment(item[1]).format('DD MMM YYYY').toString(),
+              amount: item[2],
+              price: item[3],
+            }),
           );
         } else {
           data.map((item: any) =>
             trades.push({
               id: item[0],
-              mts: item[1],
+              mts: moment(item[1]).format('DD MMM YYYY').toString(),
               amount: item[2],
               rate: item[3],
               period: item[4],
