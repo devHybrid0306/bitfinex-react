@@ -1,6 +1,6 @@
 # Getting Started with Create React App
 
-This project is bitfinex trading platform built by Typescript, React.js and Ant design and it is deployed by surge.
+This project is bitfinex trading platform built by Typescript, React.js, Redux and Ant design and it is deployed by surge.
 [bitfinex react app](http://bitfinex-react.surge.sh/).
 You need to allow cors access by installing chrome extension.
 [Allow CORS: Access-Control-Allow-Origin](https://chrome.google.com/webstore/detail/allow-cors-access-control/lhobafahddgcelffkeicbaginigeejlf/related?hl=en)
